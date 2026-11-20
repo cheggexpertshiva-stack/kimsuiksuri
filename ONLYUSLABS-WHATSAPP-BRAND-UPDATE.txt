@@ -1,0 +1,31 @@
+ONLYUSLABS — BRANDED WHATSAPP BUTTON UPDATE
+===========================================
+
+The floating WhatsApp icon now follows ONLYUSLABS' visual identity.
+
+Light mode:
+- Muted sage button (#557B70)
+- Warm ivory WhatsApp glyph (#F4F3EF)
+- Graphite shadow and subtle ivory border
+
+Dark mode:
+- Light sage button (#9DB9A5)
+- Deep forest/graphite glyph (#111713)
+- Dark-mode shadow and border treatment
+
+Other refinements:
+- Familiar WhatsApp glyph retained and recoloured; no bright default green.
+- Circular icon-only control.
+- Subtle sage pulse.
+- Small "Let's talk" tooltip on desktop hover/focus.
+- Keyboard focus ring.
+- Mobile-safe positioning.
+- Reduced-motion support.
+
+No changes to WhatsApp destination, enquiry workflow, Supabase, admin panel,
+theme switcher, SEO, or database are required for this styling-only update.
+
+Deployment:
+1. Extract this ZIP.
+2. Upload the extracted folder to the existing Netlify site.
+3. No DNS changes and no Supabase SQL migration are required.

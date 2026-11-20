@@ -1,0 +1,14 @@
+ONLYUSLABS UPDATE — ENQUIRY FORM & WHATSAPP
+===========================================
+
+See ONLYUSLABS-ENQUIRY-WHATSAPP-DEPLOY-GUIDE.txt for the complete instructions.
+
+Summary:
+- Classic circular WhatsApp logo button on the public pages.
+- Enquiry form now collects country and optional estimated budget.
+- Country automatically determines the budget currency (USD, GBP, INR, CAD, AUD, EUR or SEK).
+- Enquiries are saved to Supabase and appear in Admin -> Enquiries & CRM.
+- After the database save, WhatsApp opens with a prefilled enquiry draft. The visitor must press Send in WhatsApp.
+- Admin CRM displays country and estimated budget.
+
+For an existing Supabase project, run ONLYUSLABS-ENQUIRY-BUDGET-MIGRATION.sql before deploying the website update.

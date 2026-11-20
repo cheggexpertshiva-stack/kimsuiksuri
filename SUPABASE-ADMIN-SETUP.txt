@@ -1,0 +1,104 @@
+ONLYUSLABS — FULL ADMIN / CRM / CMS SETUP
+========================================
+
+YOUR PROJECT IS ALREADY CONNECTED IN THIS PACKAGE
+Supabase URL: https://jifyycqzulissjekigdy.supabase.co
+The publishable key is already placed in assets/js/supabase-config.js.
+The publishable key is designed for browser use. NEVER place a Supabase secret key or service_role key in this website.
+
+ADMINISTRATOR OWNER
+Email: cheggexpertshiva@gmail.com
+The SQL setup script creates this email as the initial ONLYUSLABS owner.
+If you use a different Supabase Auth email, edit the initial owner email in the SQL script BEFORE running it.
+
+STEP 1 — CREATE / CONFIRM THE ADMIN AUTH USER
+1. Open your Supabase project: https://supabase.com/dashboard/project/jifyycqzulissjekigdy
+2. Open Authentication → Users.
+3. If cheggexpertshiva@gmail.com already exists, keep that account.
+4. Otherwise choose Add user and create cheggexpertshiva@gmail.com.
+5. Use a NEW, strong, unique password (12–16+ characters). Do not reuse a password previously shared in a chat.
+6. Confirm the user / mark email as confirmed if Supabase offers that option.
+7. Open Authentication → Settings / Sign-in settings and disable public sign-ups. Admin accounts should be created by the owner only.
+
+STEP 2 — CREATE THE DATABASE, SECURITY POLICIES AND MEDIA BUCKET
+1. In the Supabase dashboard, open SQL Editor.
+2. Choose New query.
+3. Open the file ONLYUSLABS-SUPABASE-SETUP.sql from this package.
+4. Copy the entire SQL file and paste it into the Supabase SQL Editor.
+5. Click Run. Wait for the query to finish successfully.
+
+This creates:
+- Enquiries / CRM table and public contact-form insert policy.
+- CMS content table for pages, services, industries, healthcare, case studies, testimonials, FAQs and insights.
+- Starter draft records for the current website routes.
+- Website settings and default SEO settings.
+- Media metadata table and the onlyuslabs-media Storage bucket.
+- Administrator allow-list, owner/admin/editor roles and Row Level Security (RLS).
+- Activity log and updated-at triggers.
+
+STEP 3 — SET AUTH URLS
+In Supabase, open Authentication → URL Configuration.
+Set Site URL to your live primary website URL, for example:
+https://onlyuslabs.in
+Add these Redirect URLs:
+https://onlyuslabs.in/**
+https://www.onlyuslabs.in/**
+https://YOUR-NETLIFY-SITE.netlify.app/**
+Replace the last line with your actual Netlify site URL. If your current Netlify site is spectacular-cassata-977767, check its Site overview for the exact *.netlify.app address before entering it.
+
+STEP 4 — DEPLOY THE WEBSITE PACKAGE TO NETLIFY
+1. Extract the ZIP to a folder on your computer.
+2. Open Netlify and select your existing ONLYUSLABS site.
+3. Open Deploys and choose the manual deploy / deploy folder option (the wording can vary by Netlify interface).
+4. Upload the extracted folder containing index.html, admin/, assets/, and the other website folders. Do not upload only the ZIP's inner admin folder.
+5. Wait for the deploy to finish.
+6. Connect onlyuslabs.in and www.onlyuslabs.in to this same Netlify site if they are not already connected.
+
+STEP 5 — SIGN IN
+Open:
+https://onlyuslabs.in/admin/login.html
+Sign in using the administrator email and the new password created in Supabase Auth.
+The dashboard is at:
+https://onlyuslabs.in/admin/
+
+ADMIN FEATURES INCLUDED
+- Overview dashboard with live enquiry counts, monthly enquiry activity and industry mix.
+- CRM: enquiry list, status pipeline, assignment, follow-up date, internal notes and deletion.
+- Website CMS: pages, services, industries, healthcare content, case studies, testimonials, FAQs and insights.
+- Publish / draft / archive controls, public route, excerpt, body copy, featured image and per-record SEO fields.
+- Media library: upload images/PDFs, store in Supabase Storage, copy public URL and delete assets.
+- SEO and website settings: company name, tagline, contact information, WhatsApp, default SEO and social links.
+- Administrator allow-list with owner/admin/editor roles.
+- Password change and activity log.
+- Public contact form submits enquiries directly to the Supabase CRM.
+- Public CMS runtime reads published content by its exact route and displays published collections on relevant listing pages.
+
+ADDING ANOTHER ADMINISTRATOR
+1. First create/invite their user in Supabase → Authentication → Users.
+2. In ONLYUSLABS Admin → Administrators, add the exact same email address.
+3. Select Admin or Editor. Admins can manage CRM, content and settings. Editors can manage content and media only.
+4. The user can sign in only when both the Supabase Auth account and active admin allow-list row exist.
+
+PUBLISHING WEBSITE CONTENT
+- The SQL script creates starter content records as DRAFT for existing website routes.
+- Open the relevant CMS section, edit the starter record, set its exact public route (for example /about/), and publish it.
+- A published record with an exact route can update the page heading, lead text, SEO metadata and add body paragraphs on the public site.
+- Published service, industry, healthcare, case-study and insight records also populate the related public listing sections where configured.
+- Testimonials and FAQs appear in the homepage/contact page CMS sections after publication.
+- Keep the record in Draft if you do not want it displayed publicly.
+
+IMPORTANT SECURITY / PRIVACY NOTES
+- Do not paste or deploy the Supabase secret/service_role key in frontend code.
+- The SQL enables Row Level Security. Do not disable RLS to make an error disappear.
+- Public visitors can submit new enquiries only; they cannot read CRM records.
+- Do not store patient records, medical histories, passwords, payment details or other sensitive data in this website CRM. This is a general business enquiry CRM, not a healthcare records system.
+- The media bucket is public-read so published website images can load. Upload, update and delete are restricted to active administrators.
+- Enable MFA for the owner in Supabase Authentication settings.
+- Set up a backup policy for the Supabase database before production use.
+
+TROUBLESHOOTING
+- “Database setup has not been completed”: run the full SQL script in the correct Supabase project and reload /admin/.
+- “This account is not authorised”: check the email exists in Supabase Auth and is active in the admin_users table / Admins screen.
+- Login loops: verify Supabase Site URL and Redirect URLs, including the exact Netlify URL and custom domain.
+- Contact form errors: confirm the SQL script ran and the leads table has RLS policies; never disable RLS.
+- Media upload errors: confirm the onlyuslabs-media bucket and storage policies were created by the SQL script.

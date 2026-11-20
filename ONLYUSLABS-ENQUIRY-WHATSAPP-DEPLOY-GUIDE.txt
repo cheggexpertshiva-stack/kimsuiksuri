@@ -1,0 +1,48 @@
+ONLYUSLABS — ENQUIRY FORM, CRM BUDGET & WHATSAPP UPDATE
+========================================================
+
+WHAT CHANGED
+- Replaced the floating WhatsApp pill with a familiar circular green WhatsApp logo button.
+- Added country selection: United States, United Kingdom, India, Canada, Australia, Germany and Sweden.
+- Added estimated project budget (optional).
+- Budget currency automatically follows the selected country:
+  United States -> USD ($)
+  United Kingdom -> GBP (£)
+  India -> INR (₹)
+  Canada -> CAD (CA$)
+  Australia -> AUD (A$)
+  Germany -> EUR (€)
+  Sweden -> SEK (kr)
+- Website enquiries are saved in Supabase public.leads and therefore appear in the ONLYUSLABS Admin Panel under Enquiries & CRM.
+- After a successful database save, a new WhatsApp tab opens with a pre-filled message containing the enquiry details. The visitor must press Send in WhatsApp to deliver that message.
+- Admin CRM now displays country and estimated budget in the enquiry list and detail view.
+- Privacy Notice now explains the additional fields and WhatsApp hand-off.
+
+IMPORTANT WHATSAPP BEHAVIOUR
+A normal wa.me click-to-chat link cannot send messages silently. This implementation saves the enquiry to the admin CRM automatically, then opens a pre-filled WhatsApp draft for the visitor to review and press Send. Fully automatic WhatsApp delivery without the visitor pressing Send requires WhatsApp Business Cloud API credentials and a secure server-side integration; do not put those credentials in browser code.
+
+DATABASE MIGRATION — REQUIRED FOR AN EXISTING SUPABASE PROJECT
+1. Open the ONLYUSLABS Supabase project.
+2. Open SQL Editor -> New Query.
+3. Open ONLYUSLABS-ENQUIRY-BUDGET-MIGRATION.sql from this package.
+4. Copy all SQL and paste it into the editor.
+5. Press Run and confirm Success.
+This adds country, estimated_budget and budget_currency to public.leads and updates the public insert policy to validate the allowed country/currency pairs.
+
+For a brand-new database, the main ONLYUSLABS-SUPABASE-SETUP.sql also includes these columns and policy rules. Do not rerun the full setup SQL on an already configured site just for this update; run the migration file above instead.
+
+NETLIFY DEPLOYMENT
+1. Extract the ZIP.
+2. Run the Supabase migration first.
+3. Open the existing ONLYUSLABS Netlify site -> Deploys.
+4. Upload the extracted folder containing index.html, assets/, contact/, admin/ and the other page folders.
+5. After deployment, test the contact form with a test enquiry. Confirm the record appears in Admin -> Enquiries & CRM, and verify that WhatsApp opens with the prepared message.
+
+WHATSAPP DESTINATION
+Retains the previously configured destination +91 77803 67903 (wa.me/917780367903). No new or unconfirmed phone number has been substituted.
+
+SECURITY / DATA
+- The public website uses only the Supabase publishable key.
+- Never add a Supabase secret/service-role key to frontend files or this ZIP.
+- Do not submit patient records, medical details, passwords or other sensitive information in this public form.
+- Estimated budget is optional and stored as a numeric amount plus ISO currency code.

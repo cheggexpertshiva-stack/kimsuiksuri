@@ -1,0 +1,34 @@
+ONLYUSLABS — SIGNATURE MOTION UPDATE
+====================================
+
+This update adds a restrained, editorial motion system aligned with the existing
+ONLYUSLABS sage / ivory / graphite identity.
+
+Included:
+- Gentle hero support-element entrance (the main headline remains immediately visible).
+- Subtle hero grid drift and sculpture halo/orbit movement.
+- Scroll-triggered reveal for section headings, service rows, portfolio cards,
+  process steps, testimonials, FAQs and selected content blocks.
+- Staggered reveals for selected grids.
+- Subtle portfolio-card lift and artwork zoom on pointer devices.
+- Navigation underline, button-arrow and link micro-interactions.
+- Thin scroll-progress accent in the sticky header.
+- Very subtle pulse around the existing WhatsApp button.
+- prefers-reduced-motion support.
+- No external animation library and no scroll hijacking.
+
+Reference note:
+The supplied https://www.singletouch.in/ reference could not be fetched by the
+web inspection environment during this update. This implementation therefore
+uses an original motion language tailored to the existing ONLYUSLABS design,
+rather than claiming to reproduce the reference pixel-for-pixel. If an exact
+motion match is required, provide screenshots or a screen recording of the
+reference interactions.
+
+Deployment:
+1. Extract this ZIP.
+2. Deploy the extracted folder to the existing Netlify site.
+3. No DNS change is required.
+4. No Supabase migration is required for this motion-only update.
+
+The website's existing enquiry, Supabase, WhatsApp, theme and SEO files are retained.
